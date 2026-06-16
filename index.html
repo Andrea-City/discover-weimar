@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Discover Weimar - Stadt erleben mit Andrea Otto</title>
+  <meta name="description" content="Stadtführungen in Weimar - authentisch, lebendig, unvergesslich. Bald online.">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { height: 100%; }
+
+    body {
+      background: #f5f1ea;
+      color: #1a1a18;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* Nav */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.6rem 3rem;
+      border-bottom: 1px solid #ddd9d0;
+    }
+
+    .logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: 0.01em;
+      color: #1a1a18;
+    }
+
+    .logo span { color: #a08b5a; }
+
+    .badge {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      border: 1px solid #ddd9d0;
+      color: #9a9589;
+      padding: 0.35rem 0.9rem;
+      border-radius: 2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .badge::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #a08b5a;
+      animation: blink 2.5s ease-in-out infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.2; }
+    }
+
+    /* Main grid */
+    main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+    }
+
+    /* Left */
+    .left {
+      padding: 6vw 4vw 6vw 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 2.2rem;
+      border-right: 1px solid #ddd9d0;
+    }
+
+    .eyebrow {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #a08b5a;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .eyebrow::before {
+      content: '';
+      width: 24px;
+      height: 1px;
+      background: #a08b5a;
+    }
+
+    h1 {
+      font-family: 'DM Serif Display', Georgia, serif;
+      font-size: clamp(3rem, 5.5vw, 5.2rem);
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: #1a1a18;
+    }
+
+    h1 em {
+      font-style: italic;
+      color: #a08b5a;
+    }
+
+    .description {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #6b6860;
+      max-width: 400px;
+    }
+
+    .description strong {
+      color: #3a3a34;
+      font-weight: 400;
+    }
+
+    .contact-block {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .contact-hint {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #9a9589;
+    }
+
+    .contact-link {
+      font-size: 0.9rem;
+      color: #1a1a18;
+      text-decoration: none;
+      border-bottom: 1px solid #a08b5a;
+      padding-bottom: 2px;
+      display: inline-block;
+      transition: color 0.2s;
+    }
+
+    .contact-link:hover { color: #a08b5a; }
+
+    /* Right */
+    .right {
+      padding: 6vw 3rem 6vw 4vw;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+      background: #ede9e0;
+    }
+
+    .right::before {
+      content: 'W';
+      position: absolute;
+      top: -0.05em;
+      right: -0.08em;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: clamp(14rem, 22vw, 22rem);
+      line-height: 1;
+      color: #e0dbd0;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .facts {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2.5rem;
+      margin-top: auto;
+      margin-bottom: auto;
+    }
+
+    .fact {
+      border-left: 1px solid #c8c0b0;
+      padding-left: 1.4rem;
+    }
+
+    .fact-number {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 2.4rem;
+      color: #1a1a18;
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .fact-number span {
+      color: #a08b5a;
+    }
+
+    .fact-label {
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: #7a7870;
+      margin-top: 0.3rem;
+      letter-spacing: 0.04em;
+    }
+
+    /* Footer */
+    footer {
+      padding: 1.1rem 3rem;
+      border-top: 1px solid #ddd9d0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.7rem;
+      color: #9a9589;
+      letter-spacing: 0.06em;
+    }
+
+    @media (max-width: 700px) {
+      nav { padding: 1.2rem 1.5rem; }
+      main { grid-template-columns: 1fr; }
+      .left { padding: 3rem 1.5rem; border-right: none; border-bottom: 1px solid #1e1e1a; }
+      .right { padding: 3rem 1.5rem; min-height: 260px; }
+      .facts { flex-direction: row; flex-wrap: wrap; gap: 1.5rem; }
+      .right::before { font-size: 10rem; }
+      footer { padding: 1rem 1.5rem; flex-direction: column; gap: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="logo">Discover<span>Weimar</span></div>
+    <span class="badge">Website in Vorbereitung</span>
+  </nav>
+
+  <main>
+    <div class="left">
+      <span class="eyebrow">Stadtführungen Weimar</span>
+
+      <h1>
+        Weimar.<br>
+        <em>Nicht besichtigen</em> -<br>
+        erleben.
+      </h1>
+
+      <p class="description">
+        Hier entsteht die Website für Stadtführungen, die wirklich unter die
+        Oberfläche gehen. Für Einzelreisende, Schulklassen und Gruppen -
+        <strong>mit Andrea Otto durch Geschichte, die lebt.</strong>
+      </p>
+
+      <div class="contact-block">
+        <span class="contact-hint">Jetzt schon anfragen</span>
+        <a class="contact-link" href="mailto:andrea.otto@discover-weimar.de">
+          andrea.otto@discover-weimar.de
+        </a>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="facts">
+        <div class="fact">
+          <div class="fact-number">3<span>×</span></div>
+          <div class="fact-label">Weltgeschichte in einer Stadt</div>
+        </div>
+        <div class="fact">
+          <div class="fact-number">400<span>+</span></div>
+          <div class="fact-label">Jahre, die man spüren kann</div>
+        </div>
+        <div class="fact">
+          <div class="fact-number">1<span>×</span></div>
+          <div class="fact-label">Stadtführerin, die sie wirklich kennt</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <span>&copy; 2026 Andrea Otto &middot; Discover Weimar</span>
+    <span>discover-weimar.de</span>
+  </footer>
+
+</body>
+</html>
